@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Forca JS</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Jogo da Forca</h1>
+        <p>Versão web independente. Clique nas letras, use a dica e tente adivinhar a palavra antes de ficar sem tentativas.</p>
+        <div id="forca" class="forca-status">Tentativas restantes: <span id="lives">6</span></div>
+        
+        <div id="word-display" class="word-display"></div>
+
+        <div id="keyboard" class="keyboard"></div>
+
+        <div class="action-buttons">
+            <button id="reset-btn" class="reset-btn">Novo Jogo</button>
+            <button id="hint-btn" class="reset-btn">Mostrar Dica</button>
+        </div>
+        <p class="hint-note">Use o botão de dica apenas uma vez por rodada.</p>
+        <p id="message" class="message"></p>
+    </div>
+
+    <script src="../java/script.js"></script>
+</body>
+</html>
+

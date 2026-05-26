@@ -1,0 +1,72 @@
+{
+  "game": {
+    "initialLives": 6,
+    "words": [
+      "JAVASCRIPT", "PROGRAMACAO", "NAVEGADOR", "COMPUTADOR", "FRONTEND",
+      "INTERNET", "BRASIL", "ALGORITMO", "VARIAVEL", "FUNCAO",
+      "BIBLIOTECA", "FRAMEWORK", "BACKEND", "DATABASE", "SERVIDOR",
+      "CSS", "HTML", "REACT", "PYTHON", "NODEJS", "ESTRUTURA",
+      "OBJETO", "ARRAY", "STRING", "BOOLEAN", "INTERFACE",
+      "RESPONSIVO", "SOFTWARE", "HARDWARE", "SISTEMA", "DESENVOLVIMENTO",
+      "COMPILADOR", "SEGURANCA", "LOGICA", "GITHUB", "CLOUD",
+      "SCRIPT", "APLICACAO", "EXPERIENCIA", "DADOS", "AUTOMACAO",
+      "DESIGN", "COMPONENTE", "TEMPLATES", "REUTILIZAVEL"
+    ]
+  },
+  "audio": {
+    "enabled": true,
+    "volume": 0.3,
+    "notes": {
+      "C4": 261.63,
+      "D4": 293.66,
+      "E4": 329.63,
+      "F4": 349.23,
+      "G4": 391.99,
+      "A4": 440.00,
+      "B4": 493.88,
+      "C5": 523.25,
+      "D5": 587.33,
+      "E5": 659.25
+    },
+    "effects": {
+      "inicio": [
+        { "frequency": "C4", "duration": 130 },
+        { "frequency": "E4", "duration": 130 },
+        { "frequency": "G4", "duration": 260 }
+      ],
+      "acerto": [
+        { "frequency": "E4", "duration": 100 },
+        { "frequency": "G4", "duration": 100 },
+        { "frequency": "C5", "duration": 200 }
+      ],
+      "erro": [
+        { "frequency": "G4", "duration": 150 },
+        { "frequency": "D4", "duration": 300 },
+        { "frequency": "C4", "duration": 150 }
+      ],
+      "dica": [
+        { "frequency": "D4", "duration": 120 },
+        { "frequency": "E4", "duration": 120 },
+        { "frequency": "F4", "duration": 120 }
+      ],
+      "vitoria": [
+        { "frequency": "C4", "duration": 150 },
+        { "frequency": "E4", "duration": 150 },
+        { "frequency": "G4", "duration": 150 },
+        { "frequency": "C5", "duration": 400 },
+        { "frequency": "E5", "duration": 200 }
+      ],
+      "derrota": [
+        { "frequency": "F4", "duration": 300 },
+        { "frequency": "E4", "duration": 300 },
+        { "frequency": "D4", "duration": 300 },
+        { "frequency": "C4", "duration": 600 }
+      ]
+    }
+  },
+  "ui": {
+    "theme": "dark",
+    "animationsEnabled": true,
+    "responsive": true
+  }
+}

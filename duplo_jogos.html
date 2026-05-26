@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jogos: Forca + Jogo do Bilhão</title>
+    <style>
+        html,body{height:100%;margin:0;font-family:Segoe UI, Tahoma, sans-serif;background:#0f1724;color:#fff}
+        .wrap{display:flex;flex-direction:row;gap:12px;padding:12px;box-sizing:border-box;height:100%}
+        .panel{flex:1;display:flex;flex-direction:column;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(0,0,0,0.06));border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.06)}
+        .panel h2{margin:10px 14px;font-size:1.05rem}
+        .frame{flex:1;border:0;width:100%}
+        .topbar{display:flex;gap:8px;align-items:center;padding:8px 12px;background:rgba(0,0,0,0.12);border-bottom:1px solid rgba(255,255,255,0.03)}
+        .note{font-size:0.9rem;opacity:0.9}
+        @media(max-width:980px){.wrap{flex-direction:column}.panel{height:50vh}}
+    </style>
+</head>
+<body>
+    <div class="topbar">
+        <div class="note">Página de demonstração: ambos os jogos carregados lado a lado.</div>
+    </div>
+    <div id="landing-overlay" role="dialog" aria-modal="true" style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(0,0,0,0.7),rgba(0,0,0,0.85));z-index:9999;">
+        <div style="text-align:center;color:#fff;padding:28px;border-radius:12px;backdrop-filter:blur(6px);max-width:720px;width:90%;border:1px solid rgba(255,255,255,0.06)">
+            <h1 style="margin-bottom:8px;font-size:1.6rem">Bem-vindo</h1>
+            <p style="opacity:0.95;margin-bottom:12px">Escolha uma opção: inicie ambos os jogos, abra só o Jogo do Bilhão, ou apenas mostre a página sem iniciar trilhas.</p>
+            <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+                <button id="start-all" aria-label="Iniciar ambos os jogos" style="padding:12px 18px;border-radius:8px;border:none;background:#2b8cff;color:#fff;font-weight:700;cursor:pointer">Iniciar Ambos</button>
+                <button id="start-forca" aria-label="Abrir Jogo da Forca" style="padding:12px 18px;border-radius:8px;border:none;background:#ff6b6b;color:#fff;font-weight:700;cursor:pointer">Abrir Jogo da Forca</button>
+                <button id="start-bilhao" aria-label="Abrir Jogo do Bilhão" style="padding:12px 18px;border-radius:8px;border:none;background:#27ae60;color:#fff;font-weight:700;cursor:pointer">Abrir Jogo do Bilhão</button>
+                <button id="start-minimal" aria-label="Mostrar sem iniciar" style="padding:12px 18px;border-radius:8px;border:1px solid #fff;background:transparent;color:#fff;cursor:pointer">Mostrar sem iniciar</button>
+            </div>
+        </div>
+    </div>
+    <div class="wrap">
+        <div class="panel">
+            <h2>Jogo da Forca</h2>
+            <iframe class="frame" src="jogo-forca-completo.html" title="Jogo da Forca"></iframe>
+        </div>
+        <div class="panel">
+            <h2>Jogo do Bilhão</h2>
+            <iframe class="frame" src="jogo-do-bilhao.html" title="Jogo do Bilhão"></iframe>
+        </div>
+    </div>
+    <script>
+        const overlay = document.getElementById('landing-overlay');
+        const iframeForca = document.querySelector('iframe[title="Jogo da Forca"]');
+        const iframeBilhao = document.querySelector('iframe[title="Jogo do Bilhão"]');
+        document.getElementById('start-all').addEventListener('click', () => {
+            // envia mensagem para os iframes pedindo para iniciar
+            try { iframeForca.contentWindow.postMessage({type:'start'}, '*'); } catch(e){}
+            try { iframeBilhao.contentWindow.postMessage({type:'start'}, '*'); } catch(e){}
+            overlay.style.display = 'none';
+        });
+        document.getElementById('start-forca').addEventListener('click', () => {
+            try { iframeForca.contentWindow.postMessage({type:'start'}, '*'); } catch(e){}
+            overlay.style.display = 'none';
+        });
+        document.getElementById('start-bilhao').addEventListener('click', () => {
+            try { iframeBilhao.contentWindow.postMessage({type:'start'}, '*'); } catch(e){}
+            overlay.style.display = 'none';
+        });
+        document.getElementById('start-minimal').addEventListener('click', () => {
+            overlay.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
